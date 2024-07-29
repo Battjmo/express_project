@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Express and HTMX</title>
+        <script src="https://unpkg.com/htmx.org@latest/dist/htmx.js"></script>
+    </head>
+    <body>
+        <h1>bloke</h1>
+
+        <!-- htmx input component for the user entering their name -->
+        <div hx-post="/name" hx-trigger="keyup" hx-target="#name">
+            <input type="text" name="name" placeholder="Enter your name" />
+        </div>
+        s
+    </body>
+</html>
