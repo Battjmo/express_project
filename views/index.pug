@@ -2,7 +2,9 @@
 doctype html
 html
   head
-    title= "lemon"
+    title= title
     script(src="/reload/reload.js") 
+    base(href="/")
+    link(rel='stylesheet' type= 'text/css' href='/styles.css')
   body
-    block content
+    h1.text-red-600 #{title}

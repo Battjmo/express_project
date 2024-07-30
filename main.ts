@@ -8,6 +8,9 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 app.set("view engine", "pug");
+//app.use(express.static("assets"));
+app.use(express.static('assets'));
+app.use(express.static('dist'))
 
 app.get("/", (req: Request, res: Response) => {
   const title = "Home";
