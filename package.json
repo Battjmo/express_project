@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/main.js",
     "tailwind": "npx tailwindcss -i ./assets/main.css -o ./dist/styles.css --watch",
-    "dev": "concurrently \"npm run tailwind\" \"nodemon main.ts -e ts,pug\"",
+    "dev": "concurrently \"npm run tailwind\" \"nodemon main.ts -e ts,pug,css\"",
     "build": "npx tsc"
   },
   "keywords": [],

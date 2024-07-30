@@ -13,9 +13,16 @@ app.use(express.static('assets'));
 app.use(express.static('dist'))
 
 app.get("/", (req: Request, res: Response) => {
-  const title = "Home";
+  const title = "carrots";
   res.render("index", { title: title });
 });
+
+app.post("/basket", (req: Request, res: Response) => {
+  console.log('hi')
+  setTimeout(() => {
+    res.send('POST request to the homepage');
+  }, 1000);
+})
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
