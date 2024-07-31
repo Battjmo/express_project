@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/main.js",
-    "tailwind": "npx tailwindcss -i ./assets/main.css -o ./dist/styles.css --watch",
-    "dev": "concurrently \"npm run tailwind\" \"nodemon main.ts -e ts,pug,css\"",
+    "tailwinddev": "npx tailwindcss -i ./assets/main.css -o ./dist/styles.css --watch",
+    "tailwind": "npx tailwindcss -i ./assets/main.css -o ./dist/styles.css",
+    "dev": "concurrently \"npm run tailwinddev\" \"nodemon main.ts -e ts,pug,css\"",
     "build": "npx tsc && npm run tailwind"
   },
   "keywords": [],
