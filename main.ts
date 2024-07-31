@@ -1,6 +1,9 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 var reload = require("reload");
+import { middleware } from "./middleware/middleware";
+import { CustomRequest } from "./types";
+
 
 dotenv.config();
 
@@ -12,15 +15,28 @@ app.set("view engine", "pug");
 app.use(express.static('assets'));
 app.use(express.static('dist'))
 
-app.get("/", (req: Request, res: Response) => {
+// gotta tell it how to use json manually? this is dumb
+app.use(express.json());
+//tell it how to use form data
+app.use(express.urlencoded({ extended: true }));
+
+app.use(middleware);
+
+app.get("/", (req: CustomRequest, res: Response) => {
   const title = "carrots";
   res.render("index", { title: title });
 });
 
-app.post("/basket", (req: Request, res: Response) => {
-  console.log('hi')
+app.post("/basket", (req: CustomRequest, res: Response) => {
+  console.log(req.body);
+  console.log(req?.middlewareMessage);
   setTimeout(() => {
-    res.send('POST request to the homepage');
+    const email = req?.body?.email;
+    if (email) {
+      res.send(`Your email is ${email}`);
+    } else {
+      res.status(400).send("Invalid email");
+    }
   }, 1000);
 })
 

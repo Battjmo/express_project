@@ -11,5 +11,6 @@ html
 
   body
     h1.text-green-600.bg-slate-900 #{title}
-    button(hx-post="/basket" hx-trigger="click") Click me
+    button(hx-post="/basket" hx-trigger="click" hx-include="next input") Click me
       lottie-player.htmx-indicator(src="https://lottie.host/15b9493e-9c63-40f6-b52c-985235501a1e/iLTJ0KXg77.json" background="##ffffff" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal")
+    input.border-2.border-black(type="email" name="email" placeholder="Email")

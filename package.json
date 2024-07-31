@@ -8,7 +8,7 @@
     "start": "node dist/main.js",
     "tailwind": "npx tailwindcss -i ./assets/main.css -o ./dist/styles.css --watch",
     "dev": "concurrently \"npm run tailwind\" \"nodemon main.ts -e ts,pug,css\"",
-    "build": "npx tsc"
+    "build": "npx tsc && npm run tailwind"
   },
   "keywords": [],
   "author": "",
